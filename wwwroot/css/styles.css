@@ -210,7 +210,7 @@ img {
   position: absolute;
   right: 0;
   bottom: 0;
-  height:445px;
+  
  
 }
 .home__blob {
@@ -432,6 +432,7 @@ img {
   }
   .home__img {
     width: 200px;
+    bottom: 25%;
   }
 }
 @media screen and (min-width: 576px) {
@@ -474,6 +475,8 @@ img {
   .contact__container {
     justify-items: center;
   }
+  
+    
 }
 @media screen and (min-width: 768px) {
   body {
@@ -543,3 +546,13 @@ img {
     width: 450px;
   }
 }
+@media (max-width: 576px) {
+  .home__img img {
+      width: 100%;
+      height: auto;
+      max-width: 300px;
+      display: block;
+      margin: 0 auto;
+  }
+}
+
