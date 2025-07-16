@@ -1,4 +1,4 @@
-﻿window.onload =  function () {
+﻿window.onload = function () {
     var form = document.querySelector(".contact__form");
     var submitButton = document.getElementById("submit");
     var loadingButton = document.getElementById("loading");
@@ -36,6 +36,16 @@
             ('0' + currentTime.getHours()).slice(-2) + ':' +
             ('0' + currentTime.getMinutes()).slice(-2) + ':' +
             ('0' + currentTime.getSeconds()).slice(-2);
+
+
+
+
+        const oldTimeInput = form.querySelector('input[name="time"]');
+        if (oldTimeInput) oldTimeInput.remove();
+
+        const oldTitleInput = form.querySelector('input[name="title"]');
+        if (oldTitleInput) oldTitleInput.remove();
+        
         // Add a hidden time input before submitting
         var timeInput = document.createElement("input");
         timeInput.type = "hidden";
@@ -49,24 +59,24 @@
         titleInput.value = "Contact Form Submission for your Portfolio website"
         form.appendChild(titleInput);  // Add the hidden title input to the form
 
-       
+
 
         // ✅ Send email using EmailJS with the form (which now includes the 'time' input)
         emailjs.sendForm('service_g2e2eqs', 'template_iu359mz', form)
             .then(async function () {
                 form.reset();
                 submitButton.style.display = "block";
-                loadingButton.style.display = "none"; 
+                loadingButton.style.display = "none";
                 alert("Message sent successfully!");
 
             }, async function (error) {
                 form.reset();
                 submitButton.style.display = "block";
-                loadingButton.style.display = "none"; 
+                loadingButton.style.display = "none";
                 alert("Failed to send message: " + JSON.stringify(error));
 
             });
-    
+
     });
 
 };
